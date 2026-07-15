@@ -6,6 +6,13 @@
   "scripts": {
     "start": "python3 -m http.server 8080"
   },
-  "keywords": ["linux", "ricing", "hyprland", "profile-card", "github-pages"],
-  "license": "MIT"
+  "keywords": [
+    "linux",
+    "ricing",
+    "hyprland",
+    "profile-card",
+    "github-pages"
+  ],
+  "license": "MIT",
+  "homepage": "https://aetherelic.github.io/riceprint/"
 }

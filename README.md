@@ -4,24 +4,35 @@
 
 # RICEPRINT
 
-**Create exportable identity cards for Linux setups, dotfiles and desktop rice projects.**
+**A browser-based generator for shareable Linux setup cards.**
 
-[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8BA5FF?style=for-the-badge&logo=github)](https://aetherelic.github.io/riceprint/)
+[![Open Generator](https://img.shields.io/badge/OPEN_GENERATOR-8BA5FF?style=for-the-badge&logo=githubpages&logoColor=white)](https://aetherelic.github.io/riceprint/)
 [![Vanilla JavaScript](https://img.shields.io/badge/VANILLA_JS-11131E?style=for-the-badge&logo=javascript)](app.js)
 [![MIT License](https://img.shields.io/badge/LICENSE-MIT-7CF6D5?style=for-the-badge)](LICENSE)
 
-<img src="assets/preview.png" alt="Riceprint Spatial Glass, Terminal Block and Minimal Mono previews" />
+<img src="assets/preview.png" alt="Riceprint card style previews" />
 
 </div>
 
-## Overview
+## What is Riceprint?
 
-Riceprint turns your Linux setup into a polished, shareable system card. Customise your identity, system details, colours and layout, then export the result as a **1200 × 675 PNG**.
+Riceprint is a **static web app**, not a desktop widget. It lets you manually enter your Linux setup details, customise the design, and export the result as a **1200 × 675 PNG** for READMEs, dotfiles, portfolios and rice posts.
 
-- **Three styles:** Spatial Glass, Terminal Block and Minimal Mono
-- Live editing, palette presets and random colour generation
+It does not install anything, read your system automatically or run in the background.
+
+<div align="center">
+
+### [Create a card in your browser →](https://aetherelic.github.io/riceprint/)
+
+</div>
+
+## Included
+
+- Spatial Glass, Terminal Block and Minimal Mono styles
+- Live text, colour and layout editing
+- Palette presets and random colour generation
 - Local autosave and shareable configuration links
-- Dependency-free, responsive and entirely browser-based
+- Dependency-free PNG export
 
 ## Styles
 
@@ -47,14 +58,6 @@ python3 -m http.server 8080
 ```
 
 Open `http://localhost:8080`.
-
-## Use your card
-
-Export the PNG, add it to your repository, then embed it in Markdown:
-
-```md
-![My Linux setup](./assets/riceprint-card.png)
-```
 
 ## License
 
