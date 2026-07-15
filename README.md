@@ -1,6 +1,6 @@
 <div align="center">
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<img src="assets/favicon.svg" width="72" alt=" Riceprint Logo" />
 
 # RICEPRINT
 
