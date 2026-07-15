@@ -6,48 +6,37 @@
 
 **Create exportable identity cards for Linux setups, dotfiles and desktop rice projects.**
 
-[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8ba5ff?style=for-the-badge&logo=github)](https://aetherelic.github.io/riceprint/)
-[![Made with JavaScript](https://img.shields.io/badge/VANILLA_JS-11131e?style=for-the-badge&logo=javascript)](#)
-[![MIT License](https://img.shields.io/badge/LICENSE-MIT-7cf6d5?style=for-the-badge)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8BA5FF?style=for-the-badge&logo=github)](https://aetherelic.github.io/riceprint/)
+[![Vanilla JavaScript](https://img.shields.io/badge/VANILLA_JS-11131E?style=for-the-badge&logo=javascript)](app.js)
+[![MIT License](https://img.shields.io/badge/LICENSE-MIT-7CF6D5?style=for-the-badge)](LICENSE)
 
-<img src="assets/preview.png" alt="Preview of the styles included in Riceprint" />
+<img src="assets/preview.png" alt="Riceprint Spatial Glass, Terminal Block and Minimal Mono previews" />
 
 </div>
 
-## What it does
+## Overview
 
-RICEPRINT turns your Linux setup into a clean visual fingerprint. Enter your distro, window manager, shell, terminal and current project, choose a style, tweak the palette, then export a ready-to-use PNG.
+Riceprint turns your Linux setup into a polished, shareable system card. Customise your identity, system details, colours and layout, then export the result as a **1200 × 675 PNG**.
 
-- Live card editor
-- Three built-in styles: **Spatial glass**, **Terminal block** and **Minimal mono**
-- Four palette presets plus random generation
-- Dependency-free **1200 × 675 PNG export**
+- **Three styles:** Spatial Glass, Terminal Block and Minimal Mono
+- Live editing, palette presets and random colour generation
 - Local autosave and shareable configuration links
-- Responsive, keyboard-friendly interface
-- No accounts, tracking, build tools or backend
+- Dependency-free, responsive and entirely browser-based
 
-## Included styles
-
-All previews below use grounded sample data and the same tagline:
-
-> `Put anything you want here <3`
+## Styles
 
 <table>
   <tr>
-    <td align="center"><strong>Spatial glass</strong></td>
-    <td align="center"><strong>Terminal block</strong></td>
-    <td align="center"><strong>Minimal mono</strong></td>
+    <td align="center"><strong>Spatial Glass</strong></td>
+    <td align="center"><strong>Terminal Block</strong></td>
+    <td align="center"><strong>Minimal Mono</strong></td>
   </tr>
   <tr>
-    <td><img src="assets/style-glass.png" alt="Spatial glass card preview" width="100%" /></td>
-    <td><img src="assets/style-terminal.png" alt="Terminal block card preview" width="100%" /></td>
-    <td><img src="assets/style-minimal.png" alt="Minimal mono card preview" width="100%" /></td>
+    <td><img src="assets/style-glass.png" alt="Spatial Glass preview" /></td>
+    <td><img src="assets/style-terminal.png" alt="Terminal Block preview" /></td>
+    <td><img src="assets/style-minimal.png" alt="Minimal Mono preview" /></td>
   </tr>
 </table>
-
-## Grounded README assets
-
-The README now avoids decorative mockups and instead uses preview images based on the actual card layouts included in the project.
 
 ## Run locally
 
@@ -59,49 +48,13 @@ python3 -m http.server 8080
 
 Open `http://localhost:8080`.
 
-You can also open `index.html` directly, although a local server gives clipboard features the most reliable browser context.
+## Use your card
 
-## Publish with GitHub Pages
-
-1. Push the repository to GitHub.
-2. Open **Settings → Pages**.
-3. Select **Deploy from a branch**.
-4. Choose `main` and `/ (root)`.
-
-The site will be available at `https://YOUR-USERNAME.github.io/riceprint/`.
-
-## Add a generated card to your README
-
-Export your card, save it as `assets/riceprint-card.png`, then add:
+Export the PNG, add it to your repository, then embed it in Markdown:
 
 ```md
 ![My Linux setup](./assets/riceprint-card.png)
 ```
-
-## Project structure
-
-```text
-riceprint/
-├── assets/
-│   ├── favicon.svg
-│   ├── preview.png
-│   ├── style-glass.png
-│   ├── style-terminal.png
-│   ├── style-minimal.png
-│   └── example-card.png
-├── app.js
-├── index.html
-├── style.css
-├── LICENSE
-└── README.md
-```
-
-## Roadmap
-
-- Additional card layouts
-- Optional wallpaper-derived palettes
-- SVG export
-- Community preset gallery
 
 ## License
 
