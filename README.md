@@ -1,6 +1,6 @@
 <div align="center">
-
-<img width="1369" height="267" alt="image" src="https://github.com/user-attachments/assets/820bfebd-8df7-4edf-b78e-098158c122e7" />
+  
+<img width="1369" height="267" alt="image" src="https://github.com/user-attachments/assets/35b58dd3-9887-4aad-b661-6b3baed03890" />
 
 # RICEPRINT
 
@@ -10,7 +10,8 @@
 [![Vanilla JavaScript](https://img.shields.io/badge/VANILLA_JS-11131E?style=for-the-badge&logo=javascript)](app.js)
 [![MIT License](https://img.shields.io/badge/LICENSE-MIT-7CF6D5?style=for-the-badge)](LICENSE)
 
-<img src="assets/preview.png" alt="Riceprint card style previews" />
+<img width="1369" height="267" alt="image" src="https://github.com/user-attachments/assets/f4b4b497-6552-4ddc-a359-f578ceb6070c" />
+
 
 </div>
 
