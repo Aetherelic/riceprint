@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070911" />
+  <meta name="description" content="Create exportable identity cards for Linux setups, dotfiles and desktop rice projects." />
+  <title>RICEPRINT — Linux setup identity cards</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Riceprint home">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </span>
+      <span>RICEPRINT</span>
+      <small>v1.0</small>
+    </a>
+    <div class="header-meta">
+      <span class="pulse-dot"></span>
+      <span>LOCAL SESSION</span>
+      <a href="https://github.com/Aetherelic/riceprint" target="_blank" rel="noreferrer">GITHUB ↗</a>
+    </div>
+  </header>
+
+  <main id="top" class="app-shell">
+    <section class="intro">
+      <p class="eyebrow">SYSTEM IDENTITY GENERATOR</p>
+      <h1>Turn your Linux setup into a <em>visual fingerprint.</em></h1>
+      <p class="intro-copy">Build an animated profile card for your README, dotfiles repository or next rice post. Everything stays in your browser.</p>
+    </section>
+
+    <section class="workspace">
+      <aside class="control-panel" aria-label="Card controls">
+        <div class="panel-heading">
+          <div>
+            <span class="panel-kicker">CONFIGURATION</span>
+            <h2>Build your print</h2>
+          </div>
+          <button class="icon-button" id="resetButton" type="button" title="Reset card" aria-label="Reset card">↺</button>
+        </div>
+
+        <form id="cardForm" autocomplete="off">
+          <fieldset>
+            <legend>Identity</legend>
+            <div class="field-grid two-column">
+              <label>
+                <span>Display name</span>
+                <input id="displayName" name="displayName" maxlength="24" value="AETHERELIC" />
+              </label>
+              <label>
+                <span>Handle</span>
+                <input id="handle" name="handle" maxlength="28" value="@aetherelic" />
+              </label>
+            </div>
+            <label>
+              <span>Tagline</span>
+              <input id="tagline" name="tagline" maxlength="54" value="LINUX // DESIGN // SYSTEMS" />
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>System</legend>
+            <div class="field-grid two-column">
+              <label><span>Operating system</span><input id="os" name="os" maxlength="22" value="NixOS" /></label>
+              <label><span>WM / desktop</span><input id="wm" name="wm" maxlength="22" value="Hyprland" /></label>
+              <label><span>Shell</span><input id="shell" name="shell" maxlength="22" value="Bash" /></label>
+              <label><span>Terminal</span><input id="terminal" name="terminal" maxlength="22" value="Kitty" /></label>
+            </div>
+            <label><span>Current project</span><input id="project" name="project" maxlength="34" value="Arcane Shell" /></label>
+            <label><span>Status</span><input id="status" name="status" maxlength="34" value="BUILDING SOMETHING STRANGE" /></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Visual profile</legend>
+            <div class="preset-row" role="group" aria-label="Palette presets">
+              <button class="preset active" type="button" data-preset="arcane">Arcane</button>
+              <button class="preset" type="button" data-preset="void">Void</button>
+              <button class="preset" type="button" data-preset="sakura">Sakura</button>
+              <button class="preset" type="button" data-preset="terminal">Terminal</button>
+            </div>
+            <div class="colour-grid">
+              <label><span>Accent A</span><input id="accentA" type="color" value="#8ba5ff" /></label>
+              <label><span>Accent B</span><input id="accentB" type="color" value="#7cf6d5" /></label>
+              <label><span>Surface</span><input id="surface" type="color" value="#0c1020" /></label>
+            </div>
+            <div class="field-grid two-column compact-row">
+              <label>
+                <span>Frame</span>
+                <select id="frameStyle" name="frameStyle">
+                  <option value="glass">Spatial glass</option>
+                  <option value="terminal">Terminal block</option>
+                  <option value="minimal">Minimal mono</option>
+                </select>
+              </label>
+              <label>
+                <span>Motion</span>
+                <select id="motion" name="motion">
+                  <option value="on">Animated</option>
+                  <option value="off">Still</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="action-grid">
+          <button class="primary-action" id="exportButton" type="button">
+            <span>EXPORT PNG</span><strong>↓</strong>
+          </button>
+          <button class="secondary-action" id="copyMarkdownButton" type="button">COPY MARKDOWN</button>
+          <button class="secondary-action" id="shareButton" type="button">COPY SHARE LINK</button>
+          <button class="secondary-action" id="randomiseButton" type="button">RANDOMISE PALETTE</button>
+        </div>
+        <p class="action-status" id="actionStatus" aria-live="polite">Autosaved locally · no account required</p>
+      </aside>
+
+      <section class="preview-stage" aria-label="Live card preview">
+        <div class="preview-toolbar">
+          <div>
+            <span class="toolbar-label">LIVE OUTPUT</span>
+            <span class="resolution">1200 × 675</span>
+          </div>
+          <div class="toolbar-right">
+            <span id="sessionCode">PRINT 7F-2A</span>
+            <span class="live-pill"><i></i> LIVE</span>
+          </div>
+        </div>
+
+        <div class="card-wrap">
+          <article class="rice-card" id="riceCard" data-frame="glass" data-motion="on">
+            <div class="card-grid" aria-hidden="true"></div>
+            <div class="card-glow glow-a" aria-hidden="true"></div>
+            <div class="card-glow glow-b" aria-hidden="true"></div>
+            <div class="scanline" aria-hidden="true"></div>
+
+            <header class="card-topbar">
+              <div class="card-brand">
+                <span class="micro-logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <span>RICEPRINT / SYS-ID</span>
+              </div>
+              <div class="card-code" id="cardCode">RP-7F2A-26</div>
+            </header>
+
+            <div class="card-content">
+              <section class="identity-block">
+                <p class="card-tagline" id="cardTagline">LINUX // DESIGN // SYSTEMS</p>
+                <h2 id="cardDisplayName">AETHERELIC</h2>
+                <p class="card-handle" id="cardHandle">@aetherelic</p>
+
+                <div class="status-chip">
+                  <span class="status-orbit"><i></i></span>
+                  <div>
+                    <small>CURRENT STATUS</small>
+                    <strong id="cardStatus">BUILDING SOMETHING STRANGE</strong>
+                  </div>
+                </div>
+              </section>
+
+              <section class="system-block">
+                <div class="system-heading">
+                  <span>SYSTEM MANIFEST</span>
+                  <span>05 NODES</span>
+                </div>
+                <dl class="system-list">
+                  <div><dt>OS</dt><dd id="cardOs">NixOS</dd><span>01</span></div>
+                  <div><dt>WM</dt><dd id="cardWm">Hyprland</dd><span>02</span></div>
+                  <div><dt>SH</dt><dd id="cardShell">Bash</dd><span>03</span></div>
+                  <div><dt>TR</dt><dd id="cardTerminal">Kitty</dd><span>04</span></div>
+                  <div><dt>PR</dt><dd id="cardProject">Arcane Shell</dd><span>05</span></div>
+                </dl>
+              </section>
+            </div>
+
+            <footer class="card-footer">
+              <div class="palette-stripe" aria-label="Selected colour palette">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="footer-meta">
+                <span>PERSONAL SYSTEM SIGNATURE</span>
+                <span id="cardDate">15.07.2026</span>
+              </div>
+            </footer>
+          </article>
+        </div>
+
+        <div class="preview-caption">
+          <span>The exported image is rendered at full resolution.</span>
+          <span><kbd>Ctrl</kbd> + <kbd>Enter</kbd> to export</span>
+        </div>
+      </section>
+    </section>
+
+    <section class="feature-strip" aria-label="Features">
+      <article><span>01</span><h3>Zero setup</h3><p>Open the page and start designing. No install, login or build process.</p></article>
+      <article><span>02</span><h3>Portable output</h3><p>Export a crisp 1200 × 675 PNG for profiles, READMEs and showcases.</p></article>
+      <article><span>03</span><h3>Local by default</h3><p>Your configuration is stored only in your browser and encoded locally for sharing.</p></article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>DESIGNED FOR PEOPLE WHO CARE HOW THEIR SYSTEM FEELS.</span>
+    <span>MIT LICENSE · 2026</span>
+  </footer>
+
+  <canvas id="exportCanvas" width="1200" height="675" hidden></canvas>
+  <script src="app.js"></script>
+</body>
+</html>

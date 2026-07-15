@@ -1,0 +1,11 @@
+{
+  "name": "riceprint",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Create exportable identity cards for Linux setups, dotfiles and desktop rice projects.",
+  "scripts": {
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": ["linux", "ricing", "hyprland", "profile-card", "github-pages"],
+  "license": "MIT"
+}
