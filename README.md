@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/favicon.svg" width="72" alt="Riceprint logo" />
+<img width="1369" height="267" alt="image" src="https://github.com/user-attachments/assets/820bfebd-8df7-4edf-b78e-098158c122e7" />
 
 # RICEPRINT
 
