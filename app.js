@@ -1,20 +1,20 @@
-const STORAGE_KEY = "riceprint-config-v1";
+const STORAGE_KEY = "riceprint-session-v2";
 
 const defaults = {
-  displayName: "AETHERELIC",
-  handle: "@aetherelic",
-  tagline: "LINUX // DESIGN // SYSTEMS",
-  os: "NixOS",
-  wm: "Hyprland",
-  shell: "Bash",
-  terminal: "Kitty",
-  project: "Arcane Shell",
-  status: "BUILDING SOMETHING STRANGE",
-  accentA: "#8ba5ff",
-  accentB: "#7cf6d5",
-  surface: "#0c1020",
-  frameStyle: "glass",
-  motion: "on"
+  displayName: "",
+  handle: "",
+  tagline: "",
+  os: "",
+  wm: "",
+  shell: "",
+  terminal: "",
+  project: "",
+  status: "",
+  accentA: "#7f879a",
+  accentB: "#b5bac8",
+  surface: "#0b0d12",
+  frameStyle: "",
+  motion: ""
 };
 
 const presets = {
@@ -76,21 +76,24 @@ function render(state = getState()) {
     outputs[key].textContent = sanitise(state[key], defaults[key]);
   });
 
+  const frameStyle = state.frameStyle || "glass";
+  const motion = state.motion || "off";
+
   document.documentElement.style.setProperty("--accent-a", state.accentA);
   document.documentElement.style.setProperty("--accent-b", state.accentB);
   document.documentElement.style.setProperty("--surface", state.surface);
   riceCard.style.setProperty("--card-accent-a", state.accentA);
   riceCard.style.setProperty("--card-accent-b", state.accentB);
   riceCard.style.setProperty("--card-surface", state.surface);
-  riceCard.dataset.frame = state.frameStyle;
-  riceCard.dataset.motion = state.motion;
+  riceCard.dataset.frame = frameStyle;
+  riceCard.dataset.motion = motion;
 
   updateActivePreset(state);
 }
 
 function persist(state = getState()) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
     setStatus("Could not save in this browser");
   }
@@ -101,7 +104,7 @@ function loadSavedState() {
   if (shared) return shared;
 
   try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
     return saved && typeof saved === "object" ? saved : defaults;
   } catch {
     return defaults;
@@ -231,8 +234,9 @@ function drawCardToCanvas(state) {
   const H = canvas.height;
   const accentA = state.accentA;
   const accentB = state.accentB;
-  const surface = state.frameStyle === "terminal" ? "#050805" : state.surface;
-  const radius = state.frameStyle === "terminal" ? 4 : state.frameStyle === "minimal" ? 22 : 34;
+  const frameStyle = state.frameStyle || "glass";
+  const surface = frameStyle === "terminal" ? "#050805" : state.surface;
+  const radius = frameStyle === "terminal" ? 4 : frameStyle === "minimal" ? 22 : 34;
 
   ctx.clearRect(0, 0, W, H);
 
@@ -243,16 +247,16 @@ function drawCardToCanvas(state) {
   roundedRect(ctx, 2, 2, W - 4, H - 4, radius);
   ctx.fill();
 
-  if (state.frameStyle !== "minimal") {
+  if (frameStyle !== "minimal") {
     const glowA = ctx.createRadialGradient(115, 20, 0, 115, 20, 390);
-    glowA.addColorStop(0, rgba(accentA, state.frameStyle === "terminal" ? 0.13 : 0.34));
+    glowA.addColorStop(0, rgba(accentA, frameStyle === "terminal" ? 0.13 : 0.34));
     glowA.addColorStop(1, rgba(accentA, 0));
     ctx.fillStyle = glowA;
     roundedRect(ctx, 2, 2, W - 4, H - 4, radius);
     ctx.fill();
 
     const glowB = ctx.createRadialGradient(1090, 640, 0, 1090, 640, 360);
-    glowB.addColorStop(0, rgba(accentB, state.frameStyle === "terminal" ? 0.1 : 0.27));
+    glowB.addColorStop(0, rgba(accentB, frameStyle === "terminal" ? 0.1 : 0.27));
     glowB.addColorStop(1, rgba(accentB, 0));
     ctx.fillStyle = glowB;
     roundedRect(ctx, 2, 2, W - 4, H - 4, radius);
@@ -263,7 +267,7 @@ function drawCardToCanvas(state) {
     ctx.clip();
     ctx.strokeStyle = "rgba(255,255,255,.045)";
     ctx.lineWidth = 1;
-    const grid = state.frameStyle === "terminal" ? 32 : 54;
+    const grid = frameStyle === "terminal" ? 32 : 54;
     for (let x = 0; x <= W; x += grid) {
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
     }
@@ -273,7 +277,7 @@ function drawCardToCanvas(state) {
     ctx.restore();
   }
 
-  ctx.strokeStyle = state.frameStyle === "terminal" ? rgba(accentB, 0.5) : "rgba(255,255,255,.18)";
+  ctx.strokeStyle = frameStyle === "terminal" ? rgba(accentB, 0.5) : "rgba(255,255,255,.18)";
   ctx.lineWidth = 2;
   roundedRect(ctx, 2, 2, W - 4, H - 4, radius);
   ctx.stroke();
@@ -349,7 +353,7 @@ function drawCardToCanvas(state) {
   const panelY = 145;
   const panelH = 345;
   ctx.fillStyle = "rgba(4,6,11,.24)";
-  roundedRect(ctx, rightX, panelY, rightW, panelH, state.frameStyle === "terminal" ? 2 : 20);
+  roundedRect(ctx, rightX, panelY, rightW, panelH, frameStyle === "terminal" ? 2 : 20);
   ctx.fill();
   ctx.strokeStyle = "rgba(255,255,255,.11)";
   ctx.stroke();

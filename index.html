@@ -52,48 +52,49 @@
             <div class="field-grid two-column">
               <label>
                 <span>Display name</span>
-                <input id="displayName" name="displayName" maxlength="24" value="AETHERELIC" />
+                <input id="displayName" name="displayName" maxlength="24" value="" placeholder="Your display name" />
               </label>
               <label>
                 <span>Handle</span>
-                <input id="handle" name="handle" maxlength="28" value="@aetherelic" />
+                <input id="handle" name="handle" maxlength="28" value="" placeholder="@handle" />
               </label>
             </div>
             <label>
               <span>Tagline</span>
-              <input id="tagline" name="tagline" maxlength="54" value="LINUX // DESIGN // SYSTEMS" />
+              <input id="tagline" name="tagline" maxlength="54" value="" placeholder="Your tagline" />
             </label>
           </fieldset>
 
           <fieldset>
             <legend>System</legend>
             <div class="field-grid two-column">
-              <label><span>Operating system</span><input id="os" name="os" maxlength="22" value="NixOS" /></label>
-              <label><span>WM / desktop</span><input id="wm" name="wm" maxlength="22" value="Hyprland" /></label>
-              <label><span>Shell</span><input id="shell" name="shell" maxlength="22" value="Bash" /></label>
-              <label><span>Terminal</span><input id="terminal" name="terminal" maxlength="22" value="Kitty" /></label>
+              <label><span>Operating system</span><input id="os" name="os" maxlength="22" value="" placeholder="e.g. NixOS" /></label>
+              <label><span>WM / desktop</span><input id="wm" name="wm" maxlength="22" value="" placeholder="e.g. Hyprland" /></label>
+              <label><span>Shell</span><input id="shell" name="shell" maxlength="22" value="" placeholder="e.g. Bash" /></label>
+              <label><span>Terminal</span><input id="terminal" name="terminal" maxlength="22" value="" placeholder="e.g. Kitty" /></label>
             </div>
-            <label><span>Current project</span><input id="project" name="project" maxlength="34" value="Arcane Shell" /></label>
-            <label><span>Status</span><input id="status" name="status" maxlength="34" value="BUILDING SOMETHING STRANGE" /></label>
+            <label><span>Current project</span><input id="project" name="project" maxlength="34" value="" placeholder="What are you building?" /></label>
+            <label><span>Status</span><input id="status" name="status" maxlength="34" value="" placeholder="Current status" /></label>
           </fieldset>
 
           <fieldset>
             <legend>Visual profile</legend>
             <div class="preset-row" role="group" aria-label="Palette presets">
-              <button class="preset active" type="button" data-preset="arcane">Arcane</button>
+              <button class="preset" type="button" data-preset="arcane">Arcane</button>
               <button class="preset" type="button" data-preset="void">Void</button>
               <button class="preset" type="button" data-preset="sakura">Sakura</button>
               <button class="preset" type="button" data-preset="terminal">Terminal</button>
             </div>
             <div class="colour-grid">
-              <label><span>Accent A</span><input id="accentA" type="color" value="#8ba5ff" /></label>
-              <label><span>Accent B</span><input id="accentB" type="color" value="#7cf6d5" /></label>
-              <label><span>Surface</span><input id="surface" type="color" value="#0c1020" /></label>
+              <label><span>Accent A</span><input id="accentA" type="color" value="#7f879a" /></label>
+              <label><span>Accent B</span><input id="accentB" type="color" value="#b5bac8" /></label>
+              <label><span>Surface</span><input id="surface" type="color" value="#0b0d12" /></label>
             </div>
             <div class="field-grid two-column compact-row">
               <label>
                 <span>Frame</span>
                 <select id="frameStyle" name="frameStyle">
+                  <option value="" selected disabled>Choose a frame</option>
                   <option value="glass">Spatial glass</option>
                   <option value="terminal">Terminal block</option>
                   <option value="minimal">Minimal mono</option>
@@ -102,6 +103,7 @@
               <label>
                 <span>Motion</span>
                 <select id="motion" name="motion">
+                  <option value="" selected disabled>Choose motion</option>
                   <option value="on">Animated</option>
                   <option value="off">Still</option>
                 </select>
@@ -118,7 +120,7 @@
           <button class="secondary-action" id="shareButton" type="button">COPY SHARE LINK</button>
           <button class="secondary-action" id="randomiseButton" type="button">RANDOMISE PALETTE</button>
         </div>
-        <p class="action-status" id="actionStatus" aria-live="polite">Autosaved locally · no account required</p>
+        <p class="action-status" id="actionStatus" aria-live="polite">Saved for this tab · no account required</p>
       </aside>
 
       <section class="preview-stage" aria-label="Live card preview">
@@ -150,15 +152,15 @@
 
             <div class="card-content">
               <section class="identity-block">
-                <p class="card-tagline" id="cardTagline">LINUX // DESIGN // SYSTEMS</p>
-                <h2 id="cardDisplayName">AETHERELIC</h2>
-                <p class="card-handle" id="cardHandle">@aetherelic</p>
+                <p class="card-tagline" id="cardTagline"></p>
+                <h2 id="cardDisplayName"></h2>
+                <p class="card-handle" id="cardHandle"></p>
 
                 <div class="status-chip">
                   <span class="status-orbit"><i></i></span>
                   <div>
                     <small>CURRENT STATUS</small>
-                    <strong id="cardStatus">BUILDING SOMETHING STRANGE</strong>
+                    <strong id="cardStatus"></strong>
                   </div>
                 </div>
               </section>
@@ -169,11 +171,11 @@
                   <span>05 NODES</span>
                 </div>
                 <dl class="system-list">
-                  <div><dt>OS</dt><dd id="cardOs">NixOS</dd><span>01</span></div>
-                  <div><dt>WM</dt><dd id="cardWm">Hyprland</dd><span>02</span></div>
-                  <div><dt>SH</dt><dd id="cardShell">Bash</dd><span>03</span></div>
-                  <div><dt>TR</dt><dd id="cardTerminal">Kitty</dd><span>04</span></div>
-                  <div><dt>PR</dt><dd id="cardProject">Arcane Shell</dd><span>05</span></div>
+                  <div><dt>OS</dt><dd id="cardOs"></dd><span>01</span></div>
+                  <div><dt>WM</dt><dd id="cardWm"></dd><span>02</span></div>
+                  <div><dt>SH</dt><dd id="cardShell"></dd><span>03</span></div>
+                  <div><dt>TR</dt><dd id="cardTerminal"></dd><span>04</span></div>
+                  <div><dt>PR</dt><dd id="cardProject"></dd><span>05</span></div>
                 </dl>
               </section>
             </div>
@@ -200,7 +202,7 @@
     <section class="feature-strip" aria-label="Features">
       <article><span>01</span><h3>Zero setup</h3><p>Open the page and start designing. No install, login or build process.</p></article>
       <article><span>02</span><h3>Portable output</h3><p>Export a crisp 1200 × 675 PNG for profiles, READMEs and showcases.</p></article>
-      <article><span>03</span><h3>Local by default</h3><p>Your configuration is stored only in your browser and encoded locally for sharing.</p></article>
+      <article><span>03</span><h3>Local by default</h3><p>Your draft is kept only for the current browser tab and encoded locally for sharing.</p></article>
     </section>
   </main>
 
