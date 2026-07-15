@@ -4,7 +4,7 @@
 
 # RICEPRINT
 
-**A browser-based generator for shareable Linux setup cards.**
+**A browser-based generator for shareable setup cards.**
 
 [![Open Generator](https://img.shields.io/badge/OPEN_GENERATOR-8BA5FF?style=for-the-badge&logo=githubpages&logoColor=white)](https://aetherelic.github.io/riceprint/)
 [![Vanilla JavaScript](https://img.shields.io/badge/VANILLA_JS-11131E?style=for-the-badge&logo=javascript)](app.js)
@@ -16,7 +16,7 @@
 
 ## What is Riceprint?
 
-Riceprint is a **static web app**, not a desktop widget. It lets you manually enter your Linux setup details, customise the design, and export the result as a **1200 × 675 PNG** for READMEs, dotfiles, portfolios and rice posts.
+Riceprint is a **static web app**, It lets you manually enter your setup details, customise the design and export the result as a **1200 × 675 PNG** for READMEs, dotfiles, portfolios and rice posts.
 
 It does not install anything, read your system automatically or run in the background.
 
@@ -28,7 +28,7 @@ It does not install anything, read your system automatically or run in the backg
 
 ## Included
 
-- Spatial Glass, Terminal Block and Minimal Mono styles
+- 3 Different styles (I am in the process of making more)
 - Live text, colour and layout editing
 - Palette presets and random colour generation
 - Local autosave and shareable configuration links
@@ -38,14 +38,14 @@ It does not install anything, read your system automatically or run in the backg
 
 <table>
   <tr>
-    <td align="center"><strong>Spatial Glass</strong></td>
-    <td align="center"><strong>Terminal Block</strong></td>
-    <td align="center"><strong>Minimal Mono</strong></td>
+    <td align="center"><strong>Black Ice</strong></td>
+    <td align="center"><strong>Matrix</strong></td>
+    <td align="center"><strong>Pink & Black</strong></td>
   </tr>
   <tr>
-    <td><img src="assets/style-glass.png" alt="Spatial Glass preview" /></td>
-    <td><img src="assets/style-terminal.png" alt="Terminal Block preview" /></td>
-    <td><img src="assets/style-minimal.png" alt="Minimal Mono preview" /></td>
+    <td><img src="assets/style-glass.png" alt="Black Ice" /></td>
+    <td><img src="assets/style-terminal.png" alt="Matrix preview" /></td>
+    <td><img src="assets/style-minimal.png" alt="Pink & Black" /></td>
   </tr>
 </table>
 
