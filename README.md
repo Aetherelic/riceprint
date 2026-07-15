@@ -38,13 +38,13 @@ It does not install anything, read your system automatically or run in the backg
 
 <table>
   <tr>
-    <td align="center"><strong>Black Ice</strong></td>
-    <td align="center"><strong>Matrix</strong></td>
-    <td align="center"><strong>Pink & Black</strong></td>
+    <td align="center"><strong>Spatial Glass</strong></td>
+    <td align="center"><strong>Terminal</strong></td>
+    <td align="center"><strong></strong></td>
   </tr>
   <tr>
-    <td><img src="assets/style-glass.png" alt="Black Ice" /></td>
-    <td><img src="assets/style-terminal.png" alt="Matrix preview" /></td>
+    <td><img src="assets/style-glass.png" alt="Spatial Glass" /></td>
+    <td><img src="assets/style-terminal.png" alt="Terminal" /></td>
     <td><img src="assets/style-minimal.png" alt="Pink & Black" /></td>
   </tr>
 </table>
