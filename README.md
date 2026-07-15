@@ -1,6 +1,6 @@
 <div align="center">
-  
-<img width="1369" height="267" alt="image" src="https://github.com/user-attachments/assets/c4c04d7d-d03f-4f40-a7b6-2ae8862dcc03" />
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 
 # RICEPRINT
 
