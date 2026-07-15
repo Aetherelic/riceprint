@@ -40,12 +40,12 @@ It does not install anything, read your system automatically or run in the backg
   <tr>
     <td align="center"><strong>Spatial Glass</strong></td>
     <td align="center"><strong>Terminal</strong></td>
-    <td align="center"><strong></strong></td>
+    <td align="center"><strong>Minimal Mono</strong></td>
   </tr>
   <tr>
     <td><img src="assets/style-glass.png" alt="Spatial Glass" /></td>
     <td><img src="assets/style-terminal.png" alt="Terminal" /></td>
-    <td><img src="assets/style-minimal.png" alt="Pink & Black" /></td>
+    <td><img src="assets/style-minimal.png" alt="Minimal Mono" /></td>
   </tr>
 </table>
 
